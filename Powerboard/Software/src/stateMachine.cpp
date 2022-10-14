@@ -18,7 +18,7 @@ Written by the Electronics team, Imperial College London Rocketry
 #include "States/live.h"
 
 #include "Network/interfaces/usb.h"
-#include "Network/interfaces/radio.h"
+// #include "Network/interfaces/radio.h"
 #include "Network/interfaces/canbus.h"
 
 #include "rnp_networkmanager.h"

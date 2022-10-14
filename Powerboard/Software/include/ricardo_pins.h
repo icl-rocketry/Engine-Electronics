@@ -38,10 +38,10 @@
 //  */
 // #pragma once
 
-static constexpr int BaroCs = 2;
-static constexpr int LoraReset = 4;
-static constexpr int LoraCs = 5;
-static constexpr int LoraInt = 6;
+// static constexpr int BaroCs = 2;
+// static constexpr int LoraReset = 4;
+// static constexpr int LoraCs = 5;
+// static constexpr int LoraInt = 6;
 
 static constexpr int _SDA = 21;
 static constexpr int _SCL = 22;
@@ -57,7 +57,7 @@ static constexpr int BattStat2 = 27;
 static constexpr int Stat1_3V3 = 32;
 static constexpr int Stat2_3V3 = 25;
 
-static constexpr int LPC_24V = 33;
+static constexpr int LPC_24V = 4;
 
 static constexpr int Charge = 14;
 

@@ -17,7 +17,7 @@
 #include "States/ready.h"
 #include "rnp_packet.h"
 #include "rnp_interface.h"
-#include "Network/interfaces/radio.h"
+// #include "Network/interfaces/radio.h"
 #include <default_packets/simplecommandpacket.h>
 #include "Battery/battery.h"
 #include "3V3 Regulators/reg3v3.h"
