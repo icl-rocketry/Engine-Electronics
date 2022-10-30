@@ -1,6 +1,7 @@
 
 #include "live.h"
 #include "ready.h"
+#include "idle.h"
 
 #include "flags.h"
 #include "stateMachine.h"
@@ -15,6 +16,10 @@ void Live::initialise(){
 };
 
 State* Live::update(){
+    if (digitalRead(PDU_EN) == LOW){
+        State* idle_ptr = new Idle(_sm);
+        return idle_ptr;
+    }
     return this;
 };
 

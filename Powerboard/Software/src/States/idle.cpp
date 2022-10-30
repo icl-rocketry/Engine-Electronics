@@ -1,6 +1,6 @@
 
 #include "idle.h"
-#include "timeout.h"
+#include "live.h"
 
 #include "ricardo_pins.h"
 #include "flags.h"
@@ -20,12 +20,17 @@ void Idle::initialise(){
 State* Idle::update(){
     // Serial.println("Idle");
     
-    if(digitalRead(PDU_EN) == LOW){    //if PDU_EN pin externally pulled high because conn was inserted 
-        key_was_inserted = true;       //bool var is true
-    }
+    // if(digitalRead(PDU_EN) == LOW){    //if PDU_EN pin externally pulled high because conn was inserted 
+    //     key_was_inserted = true;       //bool var is true
+    // }
 
-    if(digitalRead(PDU_EN) == HIGH && key_was_inserted == true){ //if conn pulled out and hence internally                    //pulled low, transition to 'timeout' state
-        State* timeout_ptr = new Timeout(_sm); 
+    // if(digitalRead(PDU_EN) == HIGH && key_was_inserted == true){ //if conn pulled out and hence internally                    //pulled low, transition to 'timeout' state
+    //     State* timeout_ptr = new Timeout(_sm); 
+    //     return timeout_ptr;
+    // }
+
+    if(digitalRead(PDU_EN) == HIGH){ //if conn pulled out and hence internally                    //pulled low, transition to 'timeout' state
+        State* timeout_ptr = new Live(_sm); 
         return timeout_ptr;
     }
 

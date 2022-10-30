@@ -43,9 +43,9 @@ void CommandHandler::handleCommand(std::unique_ptr<RnpPacketSerialized> packetpt
 			goLiveCommand(*packetptr);
 			break;
 		}
-		case COMMANDS::Reboot:
+		case COMMANDS::ForceLive:
 		{
-			Reboot(*packetptr);
+			forceLiveCommand(*packetptr);
 			break;
 		}
 		case COMMANDS::returnToReady:
@@ -103,11 +103,6 @@ void CommandHandler::returnToReadyCommand(const RnpPacketSerialized& packet){
 		digitalWrite(LPC_24V, HIGH);
 }
 
-void CommandHandler::Reboot(const RnpPacketSerialized& packet)
-{
-	ESP.restart();
-}
-
 
 //Send packet with PDU data
 void CommandHandler::PDUPacketCommand(const RnpPacketSerialized& packet)
@@ -129,5 +124,16 @@ void CommandHandler::PDUPacketCommand(const RnpPacketSerialized& packet)
 	PDU_status.Current_state = _sm->systemstatus.getStatus();
 
 	_sm->networkmanager.sendPacket(PDU_status);	
+}
+
+
+void CommandHandler::forceLiveCommand(const RnpPacketSerialized& packet)
+{
+
+	
+		//go to live state
+		State* _live_ptr = new Live(_sm);
+    	_sm->changeState(_live_ptr);
+
 }
 

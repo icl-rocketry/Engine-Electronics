@@ -45,10 +45,10 @@ class CommandHandler {
 
         void returnToReadyCommand(const RnpPacketSerialized& packet);
 
-        void Reboot(const RnpPacketSerialized& packet);
-
         void PDUPacketCommand(const RnpPacketSerialized& packet);
 
         void LowPowerCutoffCommand(const RnpPacketSerialized& packet);
+
+        void forceLiveCommand(const RnpPacketSerialized& packet);
 
 };	
